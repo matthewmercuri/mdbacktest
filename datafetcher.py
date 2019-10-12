@@ -50,11 +50,16 @@ def dailydata(symbol, OUTPUTSIZE="full", FUNCTION="TIME_SERIES_DAILY_ADJUSTED",
     df = pd.DataFrame.transpose(df)
     df["4. close"] = df["4. close"].astype(float) #converting prices from str to float
 
+    #Renaming columns
+    rename_dict = {'1. open':'Open','2. high':'High','3. low':'Low','4. close': 'Close',
+            '5. adjusted close':'Adjusted Close','6. volume':'Volume','7. dividend amount':'Dividend',
+            '8. split coefficient':'Split Coefficient'}
+    df.rename(columns=rename_dict, inplace=True)
+
     #creating a CSV of return data
     if get_csv==True:
         _today = date.today()
         df.to_csv(f"{symbol}_{_today}.csv")
-
 
     return df
 
@@ -91,6 +96,5 @@ if __name__ == "__main__":
     pass
 
 
-df = dailydata('AAPL')
-
-print(df.head())
+#df = dailydata('AAPL', get_csv=True)
+#print(df.head())
