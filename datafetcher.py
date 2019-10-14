@@ -1,6 +1,4 @@
-
 from bs4 import BeautifulSoup
-from datetime import date
 import json
 import pandas as pd
 import requests
@@ -58,8 +56,7 @@ def dailydata(symbol, OUTPUTSIZE="full", FUNCTION="TIME_SERIES_DAILY_ADJUSTED",
 
     #creating a CSV of return data
     if get_csv==True:
-        _today = date.today()
-        df.to_csv(f"{symbol}_{_today}.csv")
+        df.to_csv(f"WorkingStockData\\{symbol}.csv")
 
     return df
 

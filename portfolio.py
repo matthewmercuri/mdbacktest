@@ -27,6 +27,16 @@ class Myportoflio:
 
 
 
+if __name__ == "__main__":
+    pass
+
+
+
+
+
+
+
+
 
 #port = Myportoflio()
 #print(port.cash)
