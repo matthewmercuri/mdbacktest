@@ -2,10 +2,11 @@ import datafetcher
 import os
 
 
+deletedata=True
 
 #Deletes all previous data saved to the working folder if it
 #deletedata is True
-def delete_old_data(deletedata=False):
+def delete_old_data(deletedata):
 
 	if deletedata == True:
 		folder = 'WorkingStockData'
@@ -20,15 +21,20 @@ def delete_old_data(deletedata=False):
 #function takes a list of tradeable stocks and
 #gathers the stock data to an API and save it
 #to a CSV file
-def grab_ticker_dfs(tradeables):
+def grab_ticker_data(tradeables):
 
-	delete_old_data(False)
+	delete_old_data(deletedata)
+
+	len_tradeables = len(tradeables)
+	i_progress = 1
 
 	for ticker in tradeables:
-		df = datafetcher.dailydata(ticker, get_csv=True)
+		len_tradeables = len(tradeables)
+		datafetcher.dailydata(ticker, get_csv=True)
 
-
-#grab_ticker_dfs(['AAPL'])
+		#printing the progress in gathering data
+		print(round((i_progress/len_tradeables)*100, 2),'% complete!')
+		i_progress += 1
 
 
 
