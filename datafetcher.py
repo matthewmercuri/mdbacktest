@@ -17,8 +17,7 @@ limited to 5 calls per min/ 500 per day
 
 def _get_api_key(filename):
     """ Given a filename,
-        return the contents of that file
-    """
+        return the contents of that file """
     try:
         with open(filename, 'r') as f:
             # It's assumed our file contains a single line,
