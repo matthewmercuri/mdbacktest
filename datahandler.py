@@ -2,7 +2,7 @@ import datafetcher
 import os
 
 
-deletedata=True
+deletedata=False
 
 #Deletes all previous data saved to the working folder if it
 #deletedata is True
@@ -30,7 +30,10 @@ def grab_ticker_data(tradeables):
 
 	for ticker in tradeables:
 		len_tradeables = len(tradeables)
-		datafetcher.dailydata(ticker, get_csv=True)
+		if os.path.isfile((f'WorkingStockData/{ticker}.csv')):
+			print(f'{ticker} file already exists!')
+		else:
+			datafetcher.dailydata(ticker, get_csv=True)
 
 		#printing the progress in gathering data
 		print(round((i_progress/len_tradeables)*100, 2),'% complete!')
