@@ -1,43 +1,10 @@
 import pandas as pd
 
 
-#define starting parameters for portfolio
-start_cash = 10000
+class Portfolio:
 
+    def __init__(self, startingcash):
+        self.cash = startingcash
 
-#functions creates an empty dataframe with required columns to represent holdings in portfolio obj
-def _create_starting_positions():
-
-	df = pd.DataFrame(columns=['SecurityName','SecurityType','SecurityQuantity','UnitPurchaseValue','UnitMarketValue'])
-
-	return df
-
-
-
-
-class Myportoflio:
-
-	def __init__(self, start_cash=start_cash):
-		self.cash = start_cash
-		self.positions = _create_starting_positions()
-
-
-
-
-
-
-
-if __name__ == "__main__":
-    pass
-
-
-
-
-
-
-
-
-
-#port = Myportoflio()
-#print(port.cash)
-#print(port.positions.head())
+        position_df_columns = ['SecurityName', 'SecurityType', 'SecurityQuantity', 'UnitPurchaseValue', 'UnitMarketValue']
+        self.positions = pd.DataFrame(columns=position_df_columns)
