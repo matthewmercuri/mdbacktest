@@ -15,3 +15,18 @@ class Events:
         stock_df (df): creaetes a new column contain the event
                        of a SMA crossover between the two periods
         '''
+        pass
+
+    def rebalance_trigger(self, rebalance_period):
+        '''Creates a new column that contains an indicator
+        for whatever period we are to rebalance the portfolio.
+
+        arguments:
+        rebalance_period (str or int): how often we want to
+                                       rebalance
+
+        retruns:
+        stock_df (df): contains new indicators column for the
+                       event triggering a rebalance
+        '''
+        pass
