@@ -26,4 +26,7 @@ class Portfolio:
         self (obj): the portfolio object
         rebalance_strategy(dict): a dictionary that lists the positions (key),
         how much of the porfolio should be invested in each position (value)
+
+        returns:
+        portfolio(obj): returns the portfolio object after rebalancing
         '''
